@@ -38,7 +38,7 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  # config.vm.synced_folder "../.chaindata", "/vagrant_data"
+   config.vm.synced_folder "./scripts/", "/home/vagrant/scripts", create: true
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -60,10 +60,11 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", path: "scripts/install.sh"
+  #config.vm.provision "shell", path: "scripts/install-javascript-web3.sh"
+
   config.vm.provision "shell", inline: <<-SHELL 
-     apt-get install -y nodejs npm #nodejs-legacy
-     npm install web3
+    echo "inline shell provisioner"
    SHELL
-   config.vm.provision "shell", path: "scripts/syncgeth.sh"
+  # config.vm.provision "shell", path: "scripts/syncgeth.sh"
 
 end
