@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "generic/ubuntu1804"
   config.vm.network "forwarded_port", guest: 8545, host: 8545
   config.vm.network "forwarded_port", guest: 30303, host: 30303, protocol: "udp"
-  config.vm.synced_folder "../contracts", "/home/vagrant/contracts", create: true
+  config.vm.synced_folder "/contracts/", "/home/vagrant/contracts", create: true
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
@@ -25,7 +25,7 @@ Vagrant.configure("2") do |config|
    end
 
 
-  config.vm.provision "file", source:"/Users/admin/Development/vagrant-web3/scripts", destination: "/home/vagrant/scripts"
+  config.vm.provision "file", source:"/scripts", destination: "/home/vagrant/scripts"
 
   config.vm.provision "shell", path: "scripts/install.sh"
   #config.vm.provision "shell", path: "scripts/install-javascript-web3.sh"
