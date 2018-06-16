@@ -25,11 +25,11 @@ Vagrant.configure("2") do |config|
    end
 
 
-  config.vm.provision "file", source:"scripts", destination: "/home/vagrant/scripts"
+  #config.vm.provision "file", source:"scripts", destination: "/home/vagrant/scripts"
 
   config.vm.provision "shell", path: "scripts/install.sh"
   #config.vm.provision "shell", path: "scripts/install-javascript-web3.sh"
-  config.vm.provision "shell", path: "scripts/install-python-web3.sh"
+  config.vm.provision "shell", path: "scripts/install-python3-web3.sh"
   config.vm.provision "shell", inline: <<-SHELL
     echo "inline shell provisioner"
    SHELL
