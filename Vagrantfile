@@ -20,8 +20,8 @@ Vagrant.configure("2") do |config|
      #vb.gui = true
      web3.name = "web3"
      # Customize the amount of memory on the VM:
-     web3.memory = "2048"
-     web3.cpus = "2"
+     web3.memory = "1024"
+     web3.cpus = "1"
    end
 
 
@@ -29,7 +29,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "shell", path: "scripts/install.sh"
   #config.vm.provision "shell", path: "scripts/install-javascript-web3.sh"
-
+  config.vm.provision "shell", path: "scripts/install-python-web3.sh"
   config.vm.provision "shell", inline: <<-SHELL
     echo "inline shell provisioner"
    SHELL
