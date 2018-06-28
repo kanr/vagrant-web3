@@ -9,6 +9,6 @@ add-apt-repository -y ppa:ethereum/ethereum-dev
 apt-get install -y ethereum solc
 apt-get autoremove -y
 
-echo "starting Geth"
-chmod +x scripts/*
-bash scripts/syncgeth.sh
+#echo "starting Geth"
+#chmod +x scripts/*
+#bash scripts/syncgeth.sh
