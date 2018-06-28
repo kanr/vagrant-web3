@@ -1,10 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# All Vagrant configuration is done below. The "2" in Vagrant.configure
-# configures the configuration version (we support older styles for
-# backwards compatibility). Please don't change it unless you know what
-# you're doing.
+#ENV['VAGRANT_DEFAULT_PROVIDER'] = 'docker'
 
 Vagrant.configure("2") do |config|
 
@@ -18,11 +15,15 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "contracts/", "/home/vagrant/contracts"
 
   
-  config.vm.synced_folder "contracts/", "/home/vagrant/contracts", create: true
-  # Provider-specific configuration so you can fine-tune various
-  # backing providers for Vagrant. These expose provider-specific options.
-  # Example for VirtualBox:
-  #
+  #config.vm.provider "docker" do |docker|
+    ## Required
+    ##docker.image = "ethereum/client-go"
+    #docker.image = "ethereum/client-python"
+    ##docker.build_dir = "../go-ethereum"
+    ## Optional
+    #docker.has_ssh = true
+    #docker.cmd = ["ls", "/"]
+#   end
    
    config.vm.provider "virtualbox" do |web3|
      # Display the VirtualBox GUI when booting the machine
